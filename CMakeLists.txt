@@ -267,13 +267,7 @@ SET_TARGET_PROPERTIES(liblua-static PROPERTIES
   COMPILE_DEFINITIONS "liblua_STATIC"
   OUTPUT_NAME "lua-static")
 
-add_executable ( lua src/luajit.c)
-target_link_libraries ( lua liblua-shared )
-
-add_executable ( lua-static src/luajit.c)
-target_link_libraries ( lua-static liblua-static )
-
-INSTALL(TARGETS liblua-shared lua
+INSTALL(TARGETS liblua-shared
   EXPORT torch-exports
   RUNTIME DESTINATION "${Lua_INSTALL_BIN_SUBDIR}"
   LIBRARY DESTINATION "${Lua_INSTALL_LIB_SUBDIR}"
